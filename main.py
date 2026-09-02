@@ -1,12 +1,13 @@
 import sys
 import json
 import datetime
+import os
 
-# print(f'Python version: {sys.version}')
-# print(f'Platform: {sys.platform}')
-# print(f'Passed to the script: {sys.argv}')
-# print(f'Copyright: {sys.copyright}')
-# print(f'Version tuple: {sys.version_info}')
+print(f'Python version: {sys.version}')
+print(f'Platform: {sys.platform}')
+print(f'Passed to the script: {sys.argv}')
+print(f'Copyright: {sys.copyright}')
+print(f'Version tuple: {sys.version_info}')
 
 thisdict = {
     "Name": "Ariel Ashera",
@@ -43,3 +44,13 @@ a = {
 }
 
 print(json.dumps(a, indent=4, separators=(" . ", " = "), sort_keys=True))
+
+# datetime
+isDate = datetime.datetime.now()
+print(isDate)
+print(isDate.year)
+print(isDate.strftime("%A"))
+
+isNDate = datetime.datetime(2016, 8, 20)
+print(isNDate)
+print(isNDate.strftime("%B"))
