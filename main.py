@@ -1,5 +1,6 @@
 import sys
 import json
+import datetime
 
 # print(f'Python version: {sys.version}')
 # print(f'Platform: {sys.platform}')
@@ -26,4 +27,19 @@ waine = json.loads(benedict)
 print(waine)
 
 # convert scheme
-print(json.dumps(thisdict))
+print(json.dumps(thisdict, indent=4))
+
+a = {
+  "name": "John",
+  "age": 30,
+  "married": True,
+  "divorced": False,
+  "children": ("Ann","Billy"),
+  "pets": None,
+  "cars": [
+    {"model": "BMW 230", "mpg": 27.5},
+    {"model": "Ford Edge", "mpg": 24.1}
+  ]
+}
+
+print(json.dumps(a, indent=4, separators=(" . ", " = "), sort_keys=True))
