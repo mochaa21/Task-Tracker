@@ -10,16 +10,17 @@ import json
 thisdict = {
     "Name": "Ariel Ashera",
     "Age": 20,
-    "Academy": "Lindris Academy"
+    "Academy": ["Lindris Academy", "Venezia Pax Institute", "Gehenna del Silencio"]
 }
 
-print(thisdict)
-print(thisdict["Name"])
+x = '{"Name": "Ariel Ashera", "Age": 20, "Academy": "Lindris Academy"}'
 
-for daftar in thisdict.values():
-    print(daftar)
+y = json.loads(x)
 
-user_profile = {"username": "clara99", "role": "admin", "status": "active"}
+print(y)
 
-for user in user_profile.items():
-    print(user)
+benedict = '{"Name": "Ariel Ashera", "Age": 20, "Academy": ["Lindris Academy", "Venezia Pax Institute", "Gehenna del Silencio"]}'
+
+waine = json.loads(benedict)
+
+print(waine)
