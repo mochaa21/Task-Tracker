@@ -24,3 +24,6 @@ benedict = '{"Name": "Ariel Ashera", "Age": 20, "Academy": ["Lindris Academy", "
 waine = json.loads(benedict)
 
 print(waine)
+
+# convert scheme
+print(json.dumps(thisdict))
