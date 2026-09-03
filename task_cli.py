@@ -42,7 +42,22 @@ def list_tasks():
     for task in tasks:
         print(f"[{task['id']}] {task['description']} - Status: {task['status']}")
 
-
+# main menu with cli (sys.argv)
+def main():
+    if len(sys.argv) < 2:
+        print("Cara pakai: python task_cli.py [add/list] [deskripsi]")
+        return
+    command = sys.argv[1]
+    if command == 'add':
+        if len(sys.argv) < 3:
+            print("Error: Enter the task description!")
+            return
+        description = sys.argv[2]
+        add_task(description)
+    elif command == 'list':
+        list_tasks()
+    else:
+        print("Unknown command!")
 
 if __name__ == "__main__":
     main()
