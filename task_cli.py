@@ -42,6 +42,23 @@ def list_tasks():
     for task in tasks:
         print(f"[{task['id']}] {task['description']} - Status: {task['status']}")
 
+def update_task(task_id, new_description):
+    tasks = load_tasks()
+    isFound = False
+
+    for task in tasks:
+        if task['id'] == task_id:
+            task['description'] = new_description
+            task['updateAt'] = datetime.now().isoformat()
+            isFound = True
+            break
+
+    if isFound:
+        save_tasks(tasks)
+        print(f"Task (ID: {task_id}) updated successfully.")
+    else:
+        print(f"Error: Task with ID {task_id} not found!")
+
 # main menu with cli (sys.argv)
 def main():
     if len(sys.argv) < 2:
@@ -56,6 +73,7 @@ def main():
         add_task(description)
     elif command == 'list':
         list_tasks()
+    
     else:
         print("Unknown command!")
 
