@@ -45,7 +45,7 @@ def list_tasks():
 # main menu with cli (sys.argv)
 def main():
     if len(sys.argv) < 2:
-        print("Cara pakai: python task_cli.py [add/list] [deskripsi]")
+        print("Usage: python task_cli.py [add/list] [description, use a string ("")]")
         return
     command = sys.argv[1]
     if command == 'add':
