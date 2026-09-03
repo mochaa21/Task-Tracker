@@ -3,15 +3,21 @@ import json
 from datetime import datetime
 import os
 
-if len(sys.argv) < 2:
-    print("Error: Missing required argument.")
-    print("Usage: python script.py <your_argument>")
-    sys.exit(1)  # Stop execution with an error code
+FILE_NAME = 'tasks.json'
 
-SyalwaSlutt = sys.argv[1]
+# db code
+def load_tasks():    
+    if not os.path.exists(FILE_NAME):
+        return []
+    with open(FILE_NAME, 'r') as file:
+        return json.load(file)
 
-if SyalwaSlutt == "SyalwaSlutt":
-    if len(sys.argv) < 3:
-        print("Error! Argument 3 is not defined.")
-    else:
-        print(sys.argv)
+def save_tasks(tasks):
+    with open(FILE_NAME, 'w') as file:
+        return json.dump(tasks, file, indent=4)
+
+# feature
+
+
+if __name__ == "__main__":
+    main()
