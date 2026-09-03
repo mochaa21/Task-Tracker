@@ -34,5 +34,15 @@ def add_task(description):
     save_tasks(tasks)
     print(f"Task added successfully (ID: {new_id})")
 
+def list_tasks():
+    tasks = load_tasks()
+    if not tasks:
+        print("There are no tasks yet. Please add a new task!")
+        return
+    for task in tasks:
+        print(f"[{task['id']}] {task['description']} - Status: {task['status']}")
+
+
+
 if __name__ == "__main__":
     main()
