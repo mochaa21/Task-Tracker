@@ -62,7 +62,7 @@ def update_task(task_id, new_description):
 # main menu with cli (sys.argv)
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python task_cli.py [add/list] [description, use a string ("")]")
+        print("Usage: python task_cli.py [add/list] [description, use a string!]")
         return
     command = sys.argv[1]
     if command == 'add':
@@ -73,7 +73,17 @@ def main():
         add_task(description)
     elif command == 'list':
         list_tasks()
-    
+    elif command == 'update':
+        if len(sys.argv) < 4:
+            print("Usage: python task_cli.py update [id] [new_description, use a string!]")
+            return
+        try:
+            task_id = int(sys.argv[2])
+        except ValueError:
+            print("Error: Task ID must be a number!")
+            return
+        new_description = sys.argv[3]
+        update_task(task_id, new_description)
     else:
         print("Unknown command!")
 
